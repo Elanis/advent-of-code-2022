@@ -4,7 +4,7 @@ mod defi01_tests {
 
     #[test]
     fn defi01() {
-        let res = defi01::do_work(String::from(
+        let source = String::from(
 "1000
 2000
 3000
@@ -19,8 +19,12 @@ mod defi01_tests {
 9000
 
 10000"
-        ));
+        );
 
+        let res = defi01::do_work(source.clone());
         assert_eq!(res, 24000);
+
+        let res = defi01::do_work_2(source.clone());
+        assert_eq!(res, 45000);
     }
 }
