@@ -18,4 +18,21 @@ C Z"
         let res = defi02::do_work(source.clone());
         assert_eq!(res, 15);
     }
+
+    #[test]
+    fn defi02_02() {
+        let source = String::from(
+"A Y
+B X
+C Z"
+        );
+
+
+        assert_eq!(defi02::line_score_2("A Y"), 4);
+        assert_eq!(defi02::line_score_2("B X"), 1);
+        assert_eq!(defi02::line_score_2("C Z"), 7);
+
+        let res = defi02::do_work_2(source.clone());
+        assert_eq!(res, 12);
+    }
 }
