@@ -18,5 +18,7 @@ move 1 from 1 to 2"
 
         let res = defi05::do_work(source.clone());
         assert_eq!(res, "CMZ");
+        let res = defi05::do_work_2(source.clone());
+        assert_eq!(res, "MCD");
     }
 }

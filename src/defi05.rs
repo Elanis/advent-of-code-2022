@@ -64,3 +64,35 @@ pub fn do_work(input : String) -> String {
 
     show_top_line(result)
 }
+
+fn apply_moves_2(mut initial : Vec<Vec<String>>, orders : Vec<&str>) -> Vec<Vec<String>> {
+    for order in orders {
+        let parts = order.split(' ').collect::<Vec<&str>>();
+
+        let amount = parts[1].parse::<u32>().unwrap();
+        let from = parts[3].parse::<usize>().unwrap();     
+        let to = parts[5].parse::<usize>().unwrap();     
+    
+        let mut stack : Vec<String> = Vec::new();
+        for _i in 0..amount {
+            let item = initial[from - 1].pop().unwrap();
+            stack.push(item);
+        }
+        stack.reverse();
+        for item in stack {
+            initial[to - 1].push(item);
+        }
+    }
+
+    initial
+}
+
+pub fn do_work_2(input : String) -> String {
+    let parts : Vec<&str> = input.split("\n\n").collect();
+    let initial : Vec<Vec<String>> = parse_cranes(parts[0]);
+    let orders : Vec<&str> = parts[1].split('\n').collect();
+
+    let result = apply_moves_2(initial, orders);
+
+    show_top_line(result)
+}
