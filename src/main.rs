@@ -26,4 +26,9 @@ fn main() {
         .expect("Should have been able to read the file");
     println!("05 (1/2): {:?}", defi05::do_work(defi05_content.clone()));
     println!("05 (2/2): {:?}", defi05::do_work_2(defi05_content.clone()));
+
+    let defi06_content = fs::read_to_string("data/06.txt")
+        .expect("Should have been able to read the file");
+    println!("06 (1/2): {:?}", defi06::do_work(defi06_content.clone()));
+    //println!("06 (2/2): {:?}", defi06::do_work_2(defi05_content.clone()));
 }
