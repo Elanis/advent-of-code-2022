@@ -111,5 +111,21 @@ pub fn do_work(input : String) -> u32 {
     total
 }
 
-    tree.get_size()
+pub fn do_work_2(input : String) -> u32 {
+    let tree = parse_tree(input);
+
+    let total_size = tree[0].get_size(tree.clone());
+    let remaining_space = 70000000 - total_size;
+    let needed_space = 30000000 - remaining_space;
+    let mut folder_size = 70000000;
+
+    for node in tree.clone() {
+        let size = node.get_size(tree.clone());
+
+        if node.node_type == NodeType::Directory && size >= needed_space && size < folder_size {
+            folder_size = size;
+        }
+    }
+
+    folder_size
 }

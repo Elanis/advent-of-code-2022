@@ -28,6 +28,7 @@ $ ls
 5626152 d.ext
 7214296 k".to_string();
 
-        assert_eq!(defi07::do_work(input), 95437);
+        assert_eq!(defi07::do_work(input.clone()), 95437);
+        assert_eq!(defi07::do_work_2(input), 24933642);
     }
 }
