@@ -23,5 +23,11 @@ mod defi08_tests {
         assert_eq!(defi08::is_visible(map.clone(), 3, 1), false);
         assert_eq!(defi08::is_visible(map.clone(), 3, 2), true);
         assert_eq!(defi08::is_visible(map.clone(), 3, 3), false);
+
+
+        assert_eq!(defi08::scenic_score(map.clone(), 1, 2), 4);
+        assert_eq!(defi08::scenic_score(map.clone(), 3, 2), 8);
+
+        assert_eq!(defi08::do_work_2(input.clone()), 8);
     }
 }
